@@ -8,6 +8,9 @@ import { AboutComponent } from './components/about/about.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 //rutas
 import { AppRoutingModule } from './app.routes'
+// servicios
+import { HeroesService } from './services/heroes.service';
+import { HeroeComponent } from './components/heroe/heroe.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,13 @@ import { AppRoutingModule } from './app.routes'
     HomeComponent,
     AboutComponent,
     HeroesComponent,
+    HeroeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HeroesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
