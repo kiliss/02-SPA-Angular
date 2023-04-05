@@ -54,7 +54,6 @@ export class HeroesService {
     }
   ];
   constructor() {
-    console.log('HeroesService constructor');
    }
     getHeroes(): Heroe[] {
       return this.heroes;
@@ -65,9 +64,11 @@ export class HeroesService {
     buscarHeroes(termino: string): Heroe[] {
       let heroesArr: Heroe[] = [];
       termino = termino.toLowerCase();
-      for(let heroe of this.heroes) {
+      for(let i = 0; i < this.heroes.length; i++) {
+        let heroe = this.heroes[i];
         let nombre = heroe.nombre.toLowerCase();
         if(nombre.indexOf(termino) >= 0) {
+          heroe.idx = i;
           heroesArr.push(heroe);
         }
       }
@@ -82,4 +83,5 @@ export interface Heroe {
   img: string;
   aparicion: string;
   casa: string;
+  idx?: number;
 }
